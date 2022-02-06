@@ -25,7 +25,7 @@ app.get("/", function(req, res) {
   res.sendFile(__dirname + "/views/index.html");
 });
 
-app.use(express.static(__dirname + "/public/style.css"));
+app.use(express.static(__dirname + "/public"));
 
 
 var port = process.env.PORT || 3000;

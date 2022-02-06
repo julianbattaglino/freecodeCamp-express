@@ -10,20 +10,17 @@ app.get("/", function(req, res) {
   
   app.use("/public", express.static(__dirname + "/public"));
   
-
+/* 6 USE THE .ENV FILE */ 
 app.get("/json", function(req, res) {
-    res.json(
-      {message: "Hello json"}
-    );
-  });
-  
-  var response = "Hello World".toUpperCase(); // now becomes "HELLO WORLD"
-  
-  if (process.env.MESSAGE_STYLE === "allCaps") {
-    response = "Hello World".toUpperCase();
-  } else {
-    response = "Hello World";
+    var jsonResponse = { "message": "Hello json" };
+    
+  if (process.env.MESSAGE_STYLE === "uppercase") {
+    jsonResponse = jsonResponse.message.toUpperCase()
   }
+
+  res.json(jsonResponse);
+});
+  
 
 
 

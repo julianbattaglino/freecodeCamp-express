@@ -27,11 +27,20 @@ app.get("/", function(req, res) {
 
 app.use("/public", express.static(__dirname + "/public"));
 
+
 app.get("/json", function(req, res) {
   res.json(
     {message: "Hello json"}
   );
 });
+
+var response = "Hello World".toUpperCase(); // now becomes "HELLO WORLD"
+
+if (process.env.MESSAGE_STYLE === "allCaps") {
+  response = "Hello World".toUpperCase();
+} else {
+  response = "Hello World";
+}
 
 var port = process.env.PORT || 3000;
 bGround.setupBackgroundApp(app, myApp, __dirname).listen(port, function(){

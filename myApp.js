@@ -1,11 +1,16 @@
 var express = require('express');
 var app = express();
+var bodyParser = require("body-parser");
 
 /* 7 - Implement a Root-Level Request Logger Middleware */ 
 app.use(function(req, res, next) {
   console.log(req.method + " " + req.path + " - " + req.ip)
   next();
 });
+
+/* 11 - Use body-parser to Parse POST Requests (Middleware Run Before All Other Routes) */
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 
 console.log ("Hello World")

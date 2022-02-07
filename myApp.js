@@ -43,11 +43,9 @@ app.get("/now", function(req, res, next) {
 /* 9 - Get Route Parameter Input from the Client */
 
 app.get("/:word/echo", function(req, res) {
-  const { word } = req.params;
-  res.json({
-    echo: word
+  res.json({ echo: req.params.word });
   });
-}); 
+
 
 
   
